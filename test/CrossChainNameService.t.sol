@@ -62,14 +62,7 @@ contract CrossChainNameServiceTest is Test {
         console.log("Initial balance of register:", address(register).balance);
 
         // Attempt to register a name with Alice's address
-        try register.register("alice.ccns") {
-            console.log("Register call succeeded");
-        } catch Error(string memory reason) {
-            console.log("Register call failed with reason:", reason);
-        }
-
-        // Log after registration attempt
-        console.log("Balance of register after register call:", address(register).balance);
+        register.register("alice.ccns") 
 
         // Lookup the address associated with the name
         address resolvedAddress = lookupSource.lookup("alice.ccns");
